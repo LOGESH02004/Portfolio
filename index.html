@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Logesh S | QA Engineer Portfolio</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f9ff;
+      overflow-x: hidden;
+      color: #0f172a;
+    }
+
+    /* SCROLLBAR */
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #dbeafe;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0f172a;
+      border-radius: 20px;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      z-index: 1000;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      color: white;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.4s;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      width: 0;
+      height: 3px;
+      background: #38bdf8;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.4s;
+      border-radius: 20px;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      padding: 120px 7% 40px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* BACKGROUND LIGHTS */
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #60a5fa;
+      border-radius: 50%;
+      filter: blur(120px);
+      top: -100px;
+      left: -100px;
+      opacity: 0.3;
+      animation: move1 8s infinite alternate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: #8b5cf6;
+      border-radius: 50%;
+      filter: blur(120px);
+      bottom: -100px;
+      right: -100px;
+      opacity: 0.3;
+      animation: move2 8s infinite alternate;
+    }
+
+    @keyframes move1 {
+      100% {
+        transform: translate(100px, 100px);
+      }
+    }
+
+    @keyframes move2 {
+      100% {
+        transform: translate(-80px, -100px);
+      }
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 300px;
+      z-index: 2;
+      animation: slideLeft 1.2s ease;
+    }
+
+    .hero-left h3 {
+      color: #2563eb;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .hero-left h1 {
+      font-size: 70px;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .hero-left h1 span {
+      color: #2563eb;
+    }
+
+    .typing {
+      font-size: 30px;
+      font-weight: 700;
+      color: #7c3aed;
+      height: 45px;
+      margin-bottom: 20px;
+    }
+
+    .hero-left p {
+      line-height: 1.9;
+      color: #475569;
+      max-width: 650px;
+      font-size: 17px;
+    }
+
+    /* BUTTONS */
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.4s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .primary {
+      background: #0f172a;
+      color: white;
+    }
+
+    .secondary {
+      border: 2px solid #0f172a;
+      color: #0f172a;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* PROFILE IMAGE */
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 300px;
+      z-index: 2;
+      animation: slideRight 1.2s ease;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+
+    .circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f172a, #2563eb, #7c3aed);
+      padding: 10px;
+      animation: rotate 10s linear infinite;
+      box-shadow:
+        0 0 40px rgba(37, 99, 235, 0.3),
+        0 0 100px rgba(124, 58, 237, 0.2);
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 8px solid white;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* FLOATING TECH ICONS */
+
+    .tech {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .tech img {
+      width: 40px;
+    }
+
+    .t1 {
+      top: -20px;
+      left: -20px;
+    }
+
+    .t2 {
+      bottom: 10px;
+      left: -40px;
+      animation-delay: 1s;
+    }
+
+    .t3 {
+      top: 50px;
+      right: -40px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 40px 7%;
+    }
+
+    .title {
+      font-size: 40px;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .title::after {
+      content: "";
+      width: 60%;
+      height: 4px;
+      background: #2563eb;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      border-radius: 20px;
+    }
+
+    /* CARD */
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transition: 0.5s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg,
+          transparent,
+          rgba(37, 99, 235, 0.08),
+          transparent);
+      top: -100%;
+      left: -100%;
+      transform: rotate(25deg);
+      transition: 0.8s;
+    }
+
+    .card:hover::before {
+      top: 100%;
+      left: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card p {
+      line-height: 1.8;
+      color: #475569;
+    }
+
+    /* GRID */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .skill {
+      background: #0f172a;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.4s;
+    }
+
+    .skill:hover {
+      background: #2563eb;
+      transform: translateY(-5px);
+    }
+
+    /* PROJECT */
+
+    .project-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      padding: 28px;
+    }
+
+    .project-content h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .project-content p {
+      margin-bottom: 20px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .project-tags span {
+      background: #dbeafe;
+      color: #2563eb;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .project-btn {
+      padding: 13px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.4s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dark-btn {
+      background: #0f172a;
+      color: white;
+    }
+
+    .blue-btn {
+      background: #2563eb;
+      color: white;
+    }
+
+    .project-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-box a {
+      text-decoration: none;
+      color: #0f172a;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.4s;
+    }
+
+    .contact-box a:hover {
+      color: #2563eb;
+      transform: translateX(8px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    /* REVEAL ANIMATION */
+
+    .hidden {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ANIMATION */
+
+    @keyframes slideLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-80px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(80px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px) {
+      .hero-left h1 {
+        font-size: 52px;
+      }
+
+      .typing {
+        font-size: 24px;
+      }
+
+      .profile-container {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        text-align: center;
+        padding-top: 170px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-left h1 {
+        font-size: 42px;
+      }
+
+      .typing {
+        font-size: 22px;
+      }
+
+      .profile-container {
+        width: 260px;
+        height: 260px;
+      }
+
+      .tech {
+        width: 55px;
+        height: 55px;
+      }
+
+      .tech img {
+        width: 30px;
+      }
+
+      .title {
+        font-size: 30px;
+      }
+    }
+
+
+  /* EXPERIENCE CARD */
+
+  .experience-card{
+    padding:0;
+    overflow:hidden;
+    transition:0.5s;
+  }
+
+  .experience-card:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 20px 40px rgba(0,0,0,0.12);
+  }
+
+  .experience-img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.5s;
+  }
+
+  .experience-card:hover .experience-img{
+    transform:scale(1.08);
+  }
+
+  .experience-content{
+    padding:28px;
+  }
+
+  .experience-content h3{
+    color:#0f172a;
+    font-size:25px;
+    margin-bottom:8px;
+  }
+
+  .experience-content h4{
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:18px;
+    font-weight:600;
+  }
+
+  .experience-content p{
+    color:#475569;
+    line-height:1.8;
+    margin-bottom:20px;
+  }
+
+  .experience-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+
+  .experience-details span{
+    background:#dbeafe;
+    color:#2563eb;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* MOBILE */
+
+  @media(max-width:768px){
+
+    .experience-img{
+      height:200px;
+    }
+
+    .experience-content h3{
+      font-size:22px;
+    }
+
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">LOGESH S<span></span></div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-left">
+
+      <h3>Hello, I'm</h3>
+
+      <h1><span>Logesh S</span></h1>
+
+      <div class="typing" id="typing"></div>
+
+      <p>
+        Electronics and Communication Engineering graduate passionate about
+        Software Testing and Quality Assurance with skills in Manual Testing,
+        SQL, Java, debugging, test case validation, and defect tracking.
+      </p>
+
+      <div class="buttons">
+
+        <a href="mailto:logeshsivakumar02@gmail.com" class="btn primary">
+          <i class="fa-solid fa-envelope"></i>
+          Email Me
+        </a>
+
+        <a href="https://www.linkedin.com/in/Logesh"
+          target="_blank"
+          class="btn secondary">
+
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <div class="profile-container">
+
+        <div class="circle">
+
+          <!-- PROFESSIONAL PROFILE PHOTO -->
+          <img
+            src="profile.jpeg"
+            alt="Profile">
+
+        </div>
+
+        <!-- FLOATING TECH ICONS -->
+
+        <div class="tech t1">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png">
+        </div>
+
+        <div class="tech t2">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png">
+        </div>
+
+        <div class="tech t3">
+          <img src="https://cdn-icons-png.flaticon.com/512/5969/5969059.png">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="hidden">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="card">
+
+      <p>
+        Enthusiastic Electronics and Communication Engineer with hands-on
+        experience in Software Testing, SQL, Java, Embedded Systems, and IoT.
+        Strong analytical thinking and problem-solving abilities with passion
+        for ensuring software quality and improving user experience.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills" class="hidden">
+
+    <h2 class="title">Testing Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill">Manual Testing</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Java</div>
+      <div class="skill">Bug Reporting</div>
+      <div class="skill">Regression Testing</div>
+      <div class="skill">Functional Testing</div>
+      <div class="skill">SDLC</div>
+      <div class="skill">STLC</div>
+      <div class="skill">Test Case Design</div>
+      <div class="skill">MS Excel</div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <!-- REPLACE YOUR EXPERIENCE SECTION WITH THIS -->
+
+<section id="experience" class="hidden">
+
+  <h2 class="title">Experience</h2>
+
+  <div class="grid">
+
+    <!-- EXPERIENCE 1 -->
+
+    <div class="card experience-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=1200&auto=format&fit=crop"
+        alt="DELPHI TVS"
+        class="experience-img">
+
+      <div class="experience-content">
+
+        <h3>DELPHI TVS DIESEL SYSTEM LTD</h3>
+
+        <h4>Senior ECM Machine Operator</h4>
+
+        <p>
+          Worked in the DEF-6 Production Department focusing on
+          production handling, quality monitoring, and operational support.
+        </p>
+
+        <div class="experience-details">
+
+          <span>
+            <i class="fa-solid fa-calendar"></i>
+            Feb 2025 – Aug 2025
+          </span>
+
+          <span>
+            <i class="fa-solid fa-location-dot"></i>
+            Oragadam
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EXPERIENCE 2 -->
+
+    <div class="card experience-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+        alt="I LED Lighting"
+        class="experience-img">
+
+      <div class="experience-content">
+
+        <h3>I LED LIGHTING SYSTEM PVT LTD</h3>
+
+        <h4>Light Service & Production Management</h4>
+
+        <p>
+          Managed production workflow and service operations
+          while ensuring quality standards and process efficiency.
+        </p>
+
+        <div class="experience-details">
+
+          <span>
+            <i class="fa-solid fa-calendar"></i>
+            Sep 2025 – Dec 2026
+          </span>
+
+          <span>
+            <i class="fa-solid fa-location-dot"></i>
+            Perungudi
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- PROJECTS -->
+
+  <section id="project" class="hidden">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="grid">
+
+      <!-- PROJECT 1 -->
+
+      <div class="card project-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+          alt="Accident Management System"
+          class="project-img">
+
+        <div class="project-content">
+
+          <h3>Accident Management System</h3>
+
+          <p>
+            Developed and tested an Accident Management System
+            for emergency reporting, location tracking,
+            and centralized data management.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>MySQL</span>
+          </div>
+
+          <div class="project-buttons">
+
+            <a href="https://github.com/"
+              target="_blank"
+              class="project-btn dark-btn">
+
+              <i class="fa-brands fa-github"></i>
+              Code
+            </a>
+
+            <a href="#"
+              target="_blank"
+              class="project-btn blue-btn">
+
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="card project-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+          alt="Portfolio"
+          class="project-img">
+
+        <div class="project-content">
+
+          <h3>Personal Portfolio Website</h3>
+
+          <p>
+            Designed and developed a modern responsive portfolio
+            website with advanced animations, interactive UI,
+            responsive layouts, and smooth scrolling effects.
+          </p>
+
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive UI</span>
+          </div>
+
+          <div class="project-buttons">
+
+            <a href="https://github.com/"
+              target="_blank"
+              class="project-btn dark-btn">
+
+              <i class="fa-brands fa-github"></i>
+              Code
+            </a>
+
+            <a href="#"
+              target="_blank"
+              class="project-btn blue-btn">
+
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Live
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="hidden">
+
+    <h2 class="title">Contact</h2>
+
+    <div class="card contact-box">
+
+      <a href="mailto:logeshsivakumar02@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+        logeshsivakumar02@gmail.com
+      </a>
+
+      <a href="tel:+919944583501">
+        <i class="fa-solid fa-phone"></i>
+        +91 99445 83501
+      </a>
+
+      <a href="https://www.linkedin.com/in/Logesh"
+        target="_blank">
+
+        <i class="fa-brands fa-linkedin"></i>
+        linkedin.com/in/Logesh
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Logesh S | QA Engineer Portfolio
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // TYPING EFFECT
+
+    const texts = [
+      "Software Testing Engineer",
+      "QA Enthusiast",
+      "Manual Tester",
+      "Bug Hunter"
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type() {
+
+      if (count === texts.length) {
+        count = 0;
+      }
+
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById("typing").textContent = letter;
+
+      if (letter.length === currentText.length) {
+
+        count++;
+        index = 0;
+
+        setTimeout(type, 1500);
+
+      } else {
+
+        setTimeout(type, 100);
+      }
+
+    })();
+
+
+    // SCROLL REVEAL
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+
+      });
+
+    });
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
+
+    // CURSOR GLOW EFFECT
+
+    const glow = document.createElement("div");
+
+    glow.style.position = "fixed";
+    glow.style.width = "20px";
+    glow.style.height = "20px";
+    glow.style.borderRadius = "50%";
+    glow.style.background = "rgba(37,99,235,0.4)";
+    glow.style.pointerEvents = "none";
+    glow.style.filter = "blur(10px)";
+    glow.style.zIndex = "9999";
+
+    document.body.appendChild(glow);
+
+    document.addEventListener("mousemove", (e) => {
+
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+
+    });
+
+  </script>
+
+</body>
+
+</html>
